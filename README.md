@@ -12,14 +12,15 @@ stow -S alacritty bash bat i3 kitty neovide nvim rofi screenlayout yazi --target
 
 ## Aliases and useful functions:
 
+`man`, `help`, and `cat` use `bat` by default.
+
+`cd` uses `zoxide` by default.
+
 Yay helpers to use fzf to search and find packages
 ```bash
 yS # short for yay -S for installing new packages
 yR # short for yay -R for uninstalling existing packages
 ```
-
-`man`, `help`, and `cat` use `bat` by default.
-`cd` uses `zoxide` by default.
 
 Colourful help page with
 ```bash
@@ -31,6 +32,6 @@ Fuzzy finding and file management
 y # opens yazi with bat preview
 ```
 
-`Ctrl+r` to go through terminal history
-`Ctrl+t` shortcut for `**<tab>`
-`Alt+c` Fuzzy find directories and cd there
+- `Ctrl+r` to go through terminal history
+- `Ctrl+t` shortcut for `**<tab>`
+- `Alt+c` Fuzzy find directories and cd there
