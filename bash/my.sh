@@ -1,3 +1,16 @@
+# Path to your oh-my-bash installation.
+export OSH="$HOME/.oh-my-bash"
+OSH_THEME="lambda" # pzq, rr, lambda
+completions=(
+  git
+  ssh
+)
+plugins=(
+  git
+  npm
+)
+source "$OSH"/oh-my-bash.sh
+
 alias yS='yay -Sql | fzf --multi --preview "yay -Si {}" | xargs -ro yay -S'
 alias yR='yay -Qqe | fzf --multi --preview "yay -Si {}" | xargs -ro yay -R'
 alias ide='neovide . && exit'
