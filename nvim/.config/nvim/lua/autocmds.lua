@@ -1,5 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 
+-- Remember cursor position
 autocmd("BufReadPost", {
   pattern = "*",
   callback = function()
