@@ -36,7 +36,7 @@ function y() {
 eval "$(zoxide init bash)"
 alias cd="z"
 
-export TERMINAL="kitty"
+export TERMINAL="ghostty"
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
 alias vi="nvim"

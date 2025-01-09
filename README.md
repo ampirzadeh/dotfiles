@@ -2,7 +2,7 @@
 
 ## Stow everything
 ```bash
-stow -S alacritty backgrounds bash bat ghostty hypr i3 kitty neovide nvim rofi screenlayout waybar yazi --target="$HOME"
+stow -S alacritty backgrounds bash bat clipse ghostty hypr i3 kitty neovide nvim rofi screenlayout waybar yazi --target="$HOME"
 ```
 
 - [Ghostty](https://ghostty.org/) as a terminal emulator
