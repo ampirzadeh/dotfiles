@@ -2,12 +2,12 @@
 
 ## Stow everything
 ```bash
-stow -S alacritty bash bat i3 kitty neovide nvim rofi screenlayout yazi --target="$HOME"
+stow -S alacritty backgrounds bash bat ghostty hypr i3 kitty neovide nvim rofi screenlayout waybar yazi --target="$HOME"
 ```
 
-- [Alacritty](https://alacritty.org/) as a terminal emulator
-- [i3](https://i3wm.org/) as the window manager
-- [Neovim](https://neovim.io/) text editor with [Neovide](https://neovide.dev/) gui
+- [Ghostty](https://ghostty.org/) as a terminal emulator
+- [Hyprland](https://hyprland.org/) as the window manager
+- [Neovim](https://neovim.io/) text editor
 - [Yazi](https://yazi-rs.github.io/) as your file manager
 
 ## Aliases and useful functions:
