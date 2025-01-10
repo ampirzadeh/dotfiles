@@ -1,13 +1,12 @@
 # Path to your oh-my-bash installation.
 export OSH="$HOME/.oh-my-bash"
-OSH_THEME="lambda" # pzq, rr, lambda
+OSH_THEME="rr" # pzq, rr, lambda
 completions=(
   git
   ssh
 )
 plugins=(
   git
-  npm
 )
 source "$OSH"/oh-my-bash.sh
 
