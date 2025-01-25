@@ -79,7 +79,9 @@
       "title<.*youtube.*>": "",
       "class<.*ghostty.*>": "",
       "class<.*ghostty.*> title<.*nvim.*>": "",
-      "class<thunar>": ""
+      "class<thunar>": "",
+      "title<y>": "", // yazi
+      "class<org.gnome.Nautilus>": ""
     }
   }
 }
