@@ -2,13 +2,19 @@
 
 ## Stow everything
 ```bash
-stow -S alacritty backgrounds bash bat clipse ghostty hypr i3 kitty neovide nvim rofi screenlayout waybar yazi --target="$HOME"
+stow -S alacritty backgrounds bash bat clipse ghostty hypr i3 kitty neovide nvim rofi screenlayout waybar yazi zsh --target="$HOME"
 ```
 
+## Stow nix config
+```bash
+sudo stow -S nix --target="/"
+```
+
+- Currently using [NixOS](https://nixos.org/), and sometimes [Arch](https://archlinux.org/)
 - [Ghostty](https://ghostty.org/) as a terminal emulator
 - [Hyprland](https://hyprland.org/) as the window manager
 - [Neovim](https://neovim.io/) text editor
-- [Yazi](https://yazi-rs.github.io/) as your file manager
+- [Yazi](https://yazi-rs.github.io/) as the filemanager
 
 ## Aliases and useful functions:
 
