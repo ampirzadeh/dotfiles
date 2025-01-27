@@ -3,13 +3,17 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+      ./hardware-configuration.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = false;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.devices = [ "nodev" ];
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.useOSProber = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
@@ -42,38 +46,38 @@
 
   environment.systemPackages = with pkgs; [
     bat
-      bat-extras.batman
-      cargo
-      clipse
-      feh
-      ffmpeg
-      fzf
-      gh
-      ghostty
-      go
-      hypridle
-      hyprpaper
-      hyprpolkitagent
-      hyprshot
-      nautilus
-      nodePackages_latest.nodejs
-      nwg-look
-      pavucontrol
-      ripgrep
-      rofi-wayland
-      stow
-      swaynotificationcenter
-      vlc
-      wget
-      wl-clip-persist
-      wl-clipboard
-      zig
-      zoxide
-      ];
+    bat-extras.batman
+    cargo
+    clipse
+    feh
+    ffmpeg
+    fzf
+    gh
+    ghostty
+    go
+    hypridle
+    hyprpaper
+    hyprpolkitagent
+    hyprshot
+    nautilus
+    nodePackages_latest.nodejs
+    nwg-look
+    pavucontrol
+    ripgrep
+    rofi-wayland
+    stow
+    swaynotificationcenter
+    vlc
+    wget
+    wl-clip-persist
+    wl-clipboard
+    zig
+    zoxide
+  ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
-      font-awesome
+    font-awesome
   ];
 
   system.stateVersion = "24.11"; # DON'T CHANGE THIS BEFORE READING THE DOCUMENTATION ON IT
