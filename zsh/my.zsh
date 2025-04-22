@@ -94,3 +94,27 @@ function Resume {
 } 
 zle -N Resume
 bindkey "^Z" Resume
+
+
+# Function: Ctrl+G followed by 0-9 to open Neovide in that workspace
+open_neovide_to_workspace() {
+  echo -n "Opening neovide in workspace... (0-9): "
+  read -k 1 workspace_key
+
+  # Check if it's a digit
+  if [[ "$workspace_key" =~ [0-9] ]]; then
+    hyprctl dispatch workspace $workspace_key
+
+    neovide .
+  else
+    echo 
+    echo "Invalid key: '$workspace_key'. Expected 0-9."
+  fi
+
+  zle push-input
+  BUFFER=""
+  zle accept-line
+}
+zle -N open_neovide_to_workspace
+bindkey '^G' open_neovide_to_workspace
+
