@@ -1,5 +1,5 @@
 theme = OneHalfDark
 font-family = FiraCode Nerd Font
 font-size = 15
-background-opacity = 0.95
+background-opacity = 0.75
 gtk-titlebar = false
