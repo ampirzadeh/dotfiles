@@ -1,5 +1,7 @@
 @import "onedark.css"; 
 
+@define-color active @yellow;
+
 * {
   margin: 0px;
   padding: 0px;
@@ -10,12 +12,10 @@
 }
 
 window#waybar {
-  background: transparent;
-  /* background-color: @crust; */
-  color: @overlay0;
+  background: rgba(0, 0, 0, 0.4);
+  color: @text;
   transition-property: background-color;
   transition-duration: 0.1s;
-  border-bottom: 1px solid @overlay1;
 }
 
 #window {
@@ -27,74 +27,47 @@ window#waybar {
 button {
   border: none;
   border-radius: 0;
-  letter-spacing: 2px;
+  letter-spacing: 5px; /* when there are multiple programs in the same workspace */
 }
 
 button:hover {
   background: inherit;
-  color: @mauve;
-  border-top: 2px solid @mauve;
+  color: @active;
+  border-top: 2px solid @active;
 }
 
 #workspaces button {
-  padding: 0px 8px;
+  padding: 0px 12px;
 }
 
 #workspaces button.focused {
   background-color: rgba(0, 0, 0, 0.3);
-  color: @rosewater;
-  border-top: 2px solid @rosewater;
+  color: @active;
+  border-top: 2px solid @active;
 }
 
 #workspaces button.active {
   background-color: rgba(0, 0, 0, 0.3);
-  color: @mauve;
-  border-top: 2px solid @mauve;
+  color: @active;
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
-}
-
-#pulseaudio,
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#wireplumber,
-#tray,
-#network,
-#mode,
-#scratchpad {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 4px;
-  margin-right: 4px;
-  padding-left: 4px;
-  padding-right: 4px;
+  background-color: @red;
 }
 
 #clock {
-  color: @maroon;
-  border-bottom: 2px solid @maroon;
-}
-
-#clock.date {
   color: @mauve;
   border-bottom: 2px solid @mauve;
 }
 
 #pulseaudio {
-  color: @blue;
-  border-bottom: 2px solid @blue;
+  color: @teal;
+  border-bottom: 2px solid @teal;
 }
 
 #network {
-  color: @yellow;
-  border-bottom: 2px solid @yellow;
+  color: @maroon;
+  border-bottom: 2px solid @maroon;
 }
 
 #idle_inhibitor {
@@ -109,21 +82,4 @@ button:hover {
 #battery {
   color: @green;
   border-bottom: 2px solid @green;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-  margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-  margin-right: 0;
-}
-
-#custom-vpn {
-  color: @lavender;
-  border-radius: 15px;
-  padding-left: 6px;
-  padding-right: 6px;
 }
