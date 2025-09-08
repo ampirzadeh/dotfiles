@@ -18,7 +18,7 @@
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
-  networking.nameservers = [ "192.168.1.200" "8.8.8.8" "1.1.1.1" ];
+  networking.nameservers = [ "8.8.8.8" "1.1.1.1" ];
 
   time.timeZone = "Europe/London";
 
