@@ -1,6 +1,6 @@
 # https://raw.githubusercontent.com/catppuccin/yazi/refs/heads/main/themes/mocha/catppuccin-mocha-peach.toml
 
-[manager]
+[mgr]
 cwd = { fg = "#94e2d5" }
 
 hovered         = { fg = "#1e1e2e", bg = "#fab387" }
