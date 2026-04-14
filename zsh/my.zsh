@@ -23,6 +23,8 @@ fi
 alias yS='yay -Sql | fzf --multi --preview "yay -Si {}" | xargs -ro yay -S'
 alias yR='yay -Qqe | fzf --multi --preview "yay -Si {}" | xargs -ro yay -R'
 
+alias s="miniserve ."
+
 alias cat='bat'
 export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 eval "$(batman --export-env)"
