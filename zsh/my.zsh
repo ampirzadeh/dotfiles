@@ -13,14 +13,6 @@ SAVEHIST=50000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-
-zstyle ':omz:update' mode auto      # update automatically without asking
-
-plugins=(git ssh)
-source $ZSH/oh-my-zsh.sh
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -128,3 +120,5 @@ alias llm='eza -lbGd --header --git --sort=modified --color=always --group-direc
 alias la='eza --long --all --group --group-directories-first'
 alias lx='eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale --color=always --group-directories-first --icons'
 alias lt='eza --tree --level=2 --color=always --group-directories-first --icons'
+
+eval "$(starship init zsh)"
