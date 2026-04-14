@@ -77,6 +77,22 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
 
 export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree"
 
+_fzf_complete_npm() {
+  ARGS="$@"
+
+  [[ "$ARGS" != "npm run"* ]] && return 1
+
+  local package=${npm_directory-$(dirname -- $(npm root))}/package.json
+  [[ ! -f "$package" ]] && return 1
+
+  local scripts=$(jq '.scripts' $package)
+  local scriptNames=$(jq '.scripts | keys[]' $package)
+
+  _fzf_complete --prompt="npm run > " --preview="jq -r '.scripts[\"{}\"]' $package" -- "$@" < <(
+    printf '%s\n' "$scriptNames"
+  )
+}
+
 _gen_fzf_default_opts
 
 # Allow Ctrl-z to toggle between suspend and resume 
