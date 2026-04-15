@@ -13,14 +13,6 @@ SAVEHIST=50000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-
-zstyle ':omz:update' mode auto      # update automatically without asking
-
-plugins=(git ssh)
-source $ZSH/oh-my-zsh.sh
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -30,6 +22,8 @@ fi
 
 alias yS='yay -Sql | fzf --multi --preview "yay -Si {}" | xargs -ro yay -S'
 alias yR='yay -Qqe | fzf --multi --preview "yay -Si {}" | xargs -ro yay -R'
+
+alias s="miniserve ."
 
 alias cat='bat'
 export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
@@ -59,7 +53,23 @@ export SUDO_EDITOR="$EDITOR"
 
 export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree"
 
-# _gen_fzf_default_opts
+_fzf_complete_npm() {
+  ARGS="$@"
+
+  [[ "$ARGS" != "npm run"* ]] && return 1
+
+  local package=${npm_directory-$(dirname -- $(npm root))}/package.json
+  [[ ! -f "$package" ]] && return 1
+
+  local scripts=$(jq '.scripts' $package)
+  local scriptNames=$(jq '.scripts | keys[]' $package)
+
+  _fzf_complete --prompt="npm run > " --preview="jq -r '.scripts[\"{}\"]' $package" -- "$@" < <(
+    printf '%s\n' "$scriptNames"
+  )
+}
+
+_gen_fzf_default_opts
 
 # Allow Ctrl-z to toggle between suspend and resume 
 function Resume {  
@@ -102,3 +112,5 @@ alias llm='eza -lbGd --header --git --sort=modified --color=always --group-direc
 alias la='eza --long --all --group --group-directories-first'
 alias lx='eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale --color=always --group-directories-first --icons'
 alias lt='eza --tree --level=2 --color=always --group-directories-first --icons'
+
+eval "$(starship init zsh)"
