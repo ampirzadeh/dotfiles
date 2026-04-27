@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     miniserve
+
     gemini-cli-bin
 
     swaynotificationcenter

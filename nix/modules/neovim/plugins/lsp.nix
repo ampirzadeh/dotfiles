@@ -21,6 +21,7 @@
         rust_analyzer.enable = true; # TODO
         nil_ls.enable = true;
         gopls.enable = true;
+        copilot.enable = true;
       };
 
       keymaps = [
