@@ -11,6 +11,7 @@
     ./notify.nix
     ./oil.nix
     ./telescope.nix
+    ./todo-comments.nix
     ./treesitter.nix
     ./undotree.nix
   ];
