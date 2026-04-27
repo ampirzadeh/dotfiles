@@ -4,7 +4,7 @@
     enable = true;
   };
 
-  gtk = {
+ gtk = {
     enable = true;
     colorScheme = "dark";
     font = {

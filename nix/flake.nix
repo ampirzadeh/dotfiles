@@ -34,13 +34,9 @@
       ];
       pkgs = import nixpkgs {
         inherit system overlays;
-        config = {
-          allowUnfree = true;
-        };
       };
     in
     {
-
       services.pipewire = {
         enable = true;
         alsa.enable = true;
