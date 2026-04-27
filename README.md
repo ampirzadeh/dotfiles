@@ -1,5 +1,9 @@
 # My dotfiles!
 
+```bash
+home-manager build --flake .#amir
+```
+
 ## Stow everything
 ```bash
 stow -S alacritty backgrounds bash bat clipse ghostty hypr i3 kitty neovide nvim rofi screenlayout starship waybar yazi zsh --target="$HOME"

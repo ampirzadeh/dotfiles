@@ -32,8 +32,8 @@
     nautilus
     rofi
 
-    neovim
-    neovide
+    # neovim
+    # neovide
     source-code-pro
 
     gh
@@ -52,10 +52,10 @@
     rust-analyzer-nightly # rust
     lua-language-server # lua
     typescript-language-server # typescript, javascript, tsx, jsx
-    nodePackages_latest.vscode-langservers-extracted # css
+    vscode-langservers-extracted # css
     gopls # go
 
-    nodePackages_latest.nodejs
+    nodejs
 
     python3
 

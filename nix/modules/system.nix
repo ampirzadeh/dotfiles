@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   services.swaync = {
     enable = true;
@@ -24,5 +24,7 @@
       package = pkgs.bibata-cursors;
       size = 24;
     };
+
+    gtk4.theme = config.gtk.theme;
   };
 }

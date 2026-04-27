@@ -2,22 +2,29 @@
   description = "My Home Manager configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-    fenix = {
-      url = "github:nix-community/fenix";
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+    fenix = {
+      url = "github:nix-community/fenix/monthly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim.url = "github:nix-community/nixvim/nixos-25.11"; # TODO
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }@inputs:
+    {
+      nixpkgs,
+      home-manager,
+      nixvim,
+      ...
+    }@inputs:
     let
       _lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -25,9 +32,15 @@
         inputs.neovim-nightly-overlay.overlays.default
         inputs.fenix.overlays.default
       ];
-      pkgs = import nixpkgs { inherit system overlays; };
+      pkgs = import nixpkgs {
+        inherit system overlays;
+        config = {
+          allowUnfree = true;
+        };
+      };
     in
     {
+
       services.pipewire = {
         enable = true;
         alsa.enable = true;
@@ -39,7 +52,10 @@
         amir = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
-          modules = [ ./home.nix ];
+          modules = [
+            nixvim.homeModules.nixvim
+            ./home.nix
+          ];
         };
       };
     };
