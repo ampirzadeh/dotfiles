@@ -41,13 +41,19 @@
     gh
     lazygit
 
-    (fenix.complete.withComponents [
-      "cargo"
-      "clippy"
-      "rust-src"
-      "rustc"
-      "rustfmt"
+    (fenix.combine [
+      (fenix.complete.withComponents [
+        "cargo"
+        "clippy"
+        "rust-src"
+        "rustc"
+        "rustfmt"
+      ])
+      (fenix.targets.wasm32-unknown-unknown.latest.withComponents [
+        "rust-std"
+      ])
     ])
+    cargo-generate
 
     # Language Servers
     nil # nix
@@ -56,6 +62,7 @@
     typescript-language-server # typescript, javascript, tsx, jsx
     vscode-langservers-extracted # css
     gopls # go
+    trunk
 
     nodejs
 
