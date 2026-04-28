@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     miniserve
 
-    gemini-cli-bin
+    opencode
 
     swaynotificationcenter
     libnotify
