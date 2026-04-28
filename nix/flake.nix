@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,21 +14,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim.url = "github:nix-community/nixvim/nixos-25.11"; # TODO
+    amir-nixvim = {
+      url = "github:ampirzadeh/nvim-config/flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
-      nixvim,
+      amir-nixvim,
       ...
     }@inputs:
     let
       _lib = nixpkgs.lib;
       system = "x86_64-linux";
       overlays = [
-        inputs.neovim-nightly-overlay.overlays.default
         inputs.fenix.overlays.default
       ];
       pkgs = import nixpkgs {
@@ -49,7 +51,7 @@
           inherit pkgs;
 
           modules = [
-            nixvim.homeModules.nixvim
+            amir-nixvim.homeManagerModules.default
             ./home.nix
           ];
         };

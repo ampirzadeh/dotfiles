@@ -34,8 +34,6 @@
     nautilus
     rofi
 
-    # neovim
-    # neovide
     source-code-pro
 
     gh
@@ -54,14 +52,6 @@
       ])
     ])
     cargo-generate
-
-    # Language Servers
-    nil # nix
-    rust-analyzer-nightly # rust
-    lua-language-server # lua
-    typescript-language-server # typescript, javascript, tsx, jsx
-    vscode-langservers-extracted # css
-    gopls # go
     trunk
 
     nodejs

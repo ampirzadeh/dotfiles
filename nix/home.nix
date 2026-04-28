@@ -4,7 +4,6 @@
     ./modules/packages.nix
     ./modules/git.nix
     ./modules/shell.nix
-    ./modules/neovim/default.nix
     ./modules/system.nix
     ./modules/hyprland.nix
   ];
