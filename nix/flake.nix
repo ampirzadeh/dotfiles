@@ -15,6 +15,7 @@
     };
 
     amir-nixvim = {
+      # url = "path:/home/amir/Projects/neovim";
       url = "github:ampirzadeh/nvim-config/flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixvim.inputs.nixpkgs.follows = "nixpkgs";

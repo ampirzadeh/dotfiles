@@ -9,11 +9,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1777414699,
-        "narHash": "sha256-+OHe9mLP4XMMv8VhIZLPeDYLLvtTFzx5CY1R6qYnQfc=",
+        "lastModified": 1777421655,
+        "narHash": "sha256-zxM1VE9to+2M/Tf6FxmMBQMjafKKUHy4wL/DsGdlDPI=",
         "owner": "ampirzadeh",
         "repo": "nvim-config",
-        "rev": "cc2edb2982a83340d499714b8f2e7e8ceac04b46",
+        "rev": "79a4c14b6d08ee52f522a6eee3a8daf8baf0db5f",
         "type": "github"
       },
       "original": {
@@ -113,7 +113,10 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "neovim-src": "neovim-src",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": [
+          "amir-nixvim",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1777361204,
@@ -146,22 +149,6 @@
       }
     },
     "nixpkgs": {
-      "locked": {
-        "lastModified": 1776949667,
-        "narHash": "sha256-GMSVw35Q+294GlrTUKlx087E31z7KurReQ1YHSKp5iw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "01fbdeef22b76df85ea168fbfe1bfd9e63681b30",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
       "locked": {
         "lastModified": 1777240971,
         "narHash": "sha256-V4jOGSpsSJXJmzETKJTyC943ZPaonqbCrc+sJaDFjf8=",
@@ -203,7 +190,7 @@
         "amir-nixvim": "amir-nixvim",
         "fenix": "fenix",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       }
     },
     "rust-analyzer-src": {
