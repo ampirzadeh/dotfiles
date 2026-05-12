@@ -13,6 +13,7 @@
     # Disable greeting
     interactiveShellInit = ''
       set fish_greeting
+      fish_vi_key_bindings
     '';
     enable = true;
     shellAbbrs = {
