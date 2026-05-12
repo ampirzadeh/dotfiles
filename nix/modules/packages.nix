@@ -55,6 +55,7 @@
     trunk
 
     nodejs
+    pnpm
 
     python3
 
