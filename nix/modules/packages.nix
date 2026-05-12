@@ -8,6 +8,8 @@
     swaynotificationcenter
     libnotify
 
+    brightnessctl
+
     overskride
     hyprshot
 
