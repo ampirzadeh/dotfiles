@@ -28,6 +28,20 @@
     abbr -a --position anywhere -- --help '--help | bat -plhelp'
     abbr -a --position anywhere -- -h '-h | bat -plhelp'
     ";
+
+    binds = {
+      # Use ctrl-z to toggle between suspending and resuming tasks
+      # I usually use this to "minimise" neovim to run a quick command
+      "ctrl-z" = {
+        mode = "insert";
+        command = ''
+          if jobs | grep -q stopped
+            builtin fg 2>/dev/null
+            commandline -f repaint
+          end
+        '';
+      };
+    };
   };
 
   programs.starship = {
