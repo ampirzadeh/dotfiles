@@ -66,6 +66,8 @@
     gcc # TODO: check
     zig
 
+    odin
+
     lua51Packages.lua
     luarocks
 

@@ -86,6 +86,15 @@
         };
       };
 
+      # for when I'm making GUIs/games
+      windowrule = [
+        "match:title .*notile.*, float on"
+        "match:title .*notile.*, no_anim on"
+        "match:title .*notile.*, no_blur on"
+        "match:title .*notile.*, no_dim on"
+        "match:title .*notile.*, center on"
+      ];
+
       workspace = [
         "w[tv1], gapsout:0, gapsin:0"
         "f[1], gapsout:0, gapsin:0"
