@@ -10,7 +10,8 @@
 
     brightnessctl
 
-    overskride
+    bluetui
+
     hyprshot
 
     # look into 7z as an alternative
