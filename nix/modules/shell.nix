@@ -14,6 +14,7 @@
     interactiveShellInit = ''
       set fish_greeting
       fish_vi_key_bindings
+      set fish_color_autosuggestion 5c6370
     '';
     enable = true;
     shellAbbrs = {
@@ -25,9 +26,11 @@
       lt = "eza --tree --level=2 --color=always --group-directories-first --icons";
     };
     shellInit = "
-    batman --export-env | source
-    abbr -a --position anywhere -- --help '--help | bat -plhelp'
-    abbr -a --position anywhere -- -h '-h | bat -plhelp'
+      set -gx EDITOR nvim
+      set -gx VISUAL nvim
+      batman --export-env | source
+      abbr -a --position anywhere -- --help '--help | bat -plhelp'
+      abbr -a --position anywhere -- -h '-h | bat -plhelp'
     ";
 
     binds = {
