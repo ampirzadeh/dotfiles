@@ -2,4 +2,4 @@
 # VERSION: 3.0
 SETUVAR __fish_initialized:4300
 SETUVAR fish_greeting:\x1d
-SETUVAR fish_user_paths:/Users/amirpirzadeh/\x2ecargo/bin
+SETUVAR fish_user_paths:/home/amir/\x2eopencode/bin\x1e/home/amir/\x2elocal/zed\x2eapp/bin\x1e/opt/nvim/bin\x1e/home/amir/\x2ezvm/self\x1e/home/amir/\x2ezvm/bin
