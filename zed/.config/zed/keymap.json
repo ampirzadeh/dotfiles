@@ -15,13 +15,15 @@
   {
     "context": "Editor",
     "bindings": {
-      "cmd-x": "editor::Format",
+      "alt-x": "editor::Format",
       "cmd-escape": "editor::ShowCompletions",
       "cmd-shift-escape": "editor::ShowWordCompletions",
+      "ctrl-s": "workspace::Save",
+      "ctrl-w": "pane::CloseActiveItem"
     },
   },
   {
-    "context": "Editor && vim_mode == normal && !menu",
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !menu",
     "bindings": {
       "enter": "editor::SelectLargerSyntaxNode",
       "tab": "editor::SelectLargerSyntaxNode",
@@ -29,12 +31,10 @@
     },
   },
   {
-    "context": "Editor && vim_mode == visual && !menu",
+    "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
-      "enter": "editor::SelectLargerSyntaxNode",
-      "tab": "editor::SelectLargerSyntaxNode",
-      "shift-tab": "editor::SelectSmallerSyntaxNode",
-    },
+      "ctrl-v": "editor::Paste"
+    }
   },
   {
     "context": "Pane",
