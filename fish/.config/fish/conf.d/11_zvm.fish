@@ -1,6 +1,4 @@
 # ZVM
 set -gx ZVM_INSTALL "$HOME/.zvm/self"
-set -gx PATH $PATH "$HOME/.zvm/bin"
-set -gx PATH $PATH "$ZVM_INSTALL/"
-
-zvm completion fish | source
+fish_add_path "$HOME/.zvm/bin"
+fish_add_path "$ZVM_INSTALL/"

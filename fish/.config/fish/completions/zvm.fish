@@ -1,0 +1,1 @@
+zvm completion fish | source
