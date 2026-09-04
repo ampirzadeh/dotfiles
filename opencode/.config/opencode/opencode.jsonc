@@ -1,0 +1,138 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "lsp": true,
+  "permission": {
+    // Tool-level permissions
+    "edit": "allow",
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow",
+    },
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "todowrite": "allow",
+    "task": "allow",
+    "skill": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "external_directory": "ask",
+
+    // bash: catch-all "ask" first; specific rules after.
+    // Last matching rule wins.
+    "bash": {
+      // default: prompt for anything not listed
+      "*": "ask",
+
+      // read-only inspection
+      "sed *": "allow",
+      "ls *": "allow",
+      "echo *": "allow",
+      "sort *": "allow",
+      "pwd": "allow",
+      "cat *": "allow",
+      "rg *": "allow",
+      "grep *": "allow",
+      "find *": "allow",
+      "wc *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "tree *": "allow",
+      "which *": "allow",
+      "command -v *": "allow",
+      "type *": "allow",
+      "df *": "allow",
+      "du *": "allow",
+      "uname *": "allow",
+      "date *": "allow",
+
+      // read-only git
+      "git status *": "allow",
+      "git log *": "allow",
+      "git diff *": "allow",
+      "git show *": "allow",
+      "git branch *": "ask",
+      "git branch --show-current": "allow",
+      "git branch -a *": "allow",
+      "git branch -r *": "allow",
+      "git branch -v *": "allow",
+      "git branch --list *": "allow",
+      "git branch --merged *": "allow",
+      "git branch --no-merged *": "allow",
+      "git branch --contains *": "allow",
+      "git branch": "allow",
+      "git remote *": "allow",
+      "git ls-files *": "allow",
+      "git rev-parse *": "allow",
+      "git blame *": "allow",
+      "git tag *": "ask",
+      "git tag -l *": "allow",
+      "git tag --list *": "allow",
+      "git tag": "allow",
+      "git config --get *": "allow",
+
+      // dev/test runners (mutating git, npm install, etc. stay "ask")
+      "npm run *": "allow",
+      "npm test *": "allow",
+      "pnpm run *": "allow",
+      "pnpm test *": "allow",
+      "bun run *": "allow",
+      "bun test *": "allow",
+      "yarn run *": "allow",
+      "cargo doc *": "allow",
+      "cargo build *": "allow",
+      "cargo check *": "allow",
+      "cargo test *": "allow",
+      "cargo run *": "allow",
+      "cargo fmt *": "allow",
+      "go build *": "allow",
+      "go test *": "allow",
+      "go run *": "allow",
+      "python -m pytest *": "allow",
+      "rustfmt *": "allow",
+
+      // docker read-only
+      "docker ps *": "allow",
+      "docker images *": "allow",
+      "docker logs *": "allow",
+      "docker inspect *": "allow",
+
+      // destructive / dangerous: explicit ask
+      "find * -exec *": "deny",
+      "find * -delete *": "deny",
+      "rm *": "ask",
+      "rmdir *": "ask",
+      "unlink *": "ask",
+      "sudo *": "ask",
+      "su *": "ask",
+      "mkfs *": "ask",
+      "fdisk *": "ask",
+      "dd *": "ask",
+      "shutdown *": "ask",
+      "reboot *": "ask",
+      "halt *": "ask",
+      "poweroff *": "ask",
+      "kill *": "ask",
+      "killall *": "ask",
+      "pkill *": "ask",
+
+      // redirects: prompt for writes, allow stderr->stdout
+      "* > *": "ask", // cmd ... > file
+      "* >> *": "ask", // append form (not caught by the rule above)
+      "* 2>*": "ask", // stderr redirect to file (also matches 2>&1)
+      "*>*": "ask", // no-space/bare forms like echo hi >x
+      "* 2>&1": "allow", // re-allow common benign stderr->stdout
+      "env *": "deny", // hard-deny env (bare dump + VAR=x cmd); last so it beats redirect allows
+
+      "odin version": "allow",
+      "zig version": "allow",
+      "go version": "allow",
+      "cargo version": "allow",
+      "odin check .": "allow",
+      "zig build check": "allow",
+      "cargo check": "allow",
+    },
+  },
+}
