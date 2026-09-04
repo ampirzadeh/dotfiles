@@ -1,0 +1,118 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "terminal": {
+    "shell": {
+      "program": "fish",
+    },
+  },
+  "show_edit_predictions": true,
+  "languages": {
+    "Zig": {
+      "enable_language_server": true,
+    },
+    "C": {
+      "show_edit_predictions": false,
+    },
+  },
+  "disable_ai": false,
+  "edit_predictions": {
+    "provider": "zed",
+    "open_ai_compatible_api": {
+      "api_url": "",
+      "model": "",
+    },
+    "ollama": {
+      "api_url": "http://localhost:11434",
+    },
+  },
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
+    "zls": {
+      "initialization_options": {
+        "$schema": "https://raw.githubusercontent.com/zigtools/zls/refs/heads/master/schema.json",
+        "enable_build_on_save": true,
+        "warn_style": true,
+        "highlight_global_var_declarations": true,
+      },
+    },
+  },
+  "format_on_save": "off",
+  "diff_view_style": "split",
+  "language_models": {
+    "opencode": {
+      "show_zen_models": false,
+      "show_go_models": false,
+    },
+  },
+  "buffer_line_height": "comfortable",
+  "icon_theme": "Material Icon Theme",
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false,
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+    },
+  },
+  "base_keymap": "VSCode",
+  "buffer_font_family": "FiraCode Nerd Font Mono",
+  "cli_default_open_behavior": "new_window",
+  "vim_mode": true,
+  "vim": {
+    "toggle_relative_line_numbers": true,
+    "use_smartcase_find": true,
+  },
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "default_model": {
+      "effort": "high",
+      "provider": "opencode",
+      "model": "free/nemotron-3-ultra-free",
+      "enable_thinking": true,
+    },
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "tree_view": true,
+    "dock": "left",
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Plastic - Deprioritised Punctuation",
+  },
+}
